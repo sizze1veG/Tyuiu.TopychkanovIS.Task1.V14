@@ -8,31 +8,43 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 {
     internal class Transport
     {
-        private TransportType _type;
-        private int _routeNumber;
-        private DateTime _routeIntroductionDate;
-        private string _initialStop;
-        private string _finalStop;
-        private DateTime _routeTime;
-        private string _note;
+        public TransportType Type { get; private set; }
+        public int RouteNumber { get; private set;  }
+        public DateTime RouteIntroductionDate { get; private set; }
+        public string InitialStop { get; private set; }
+        public string FinalStop { get; private set; }
+        public DateTime RouteTime { get; private set; }
+        public string Note { get; private set; }
 
         public Transport(TransportType type, int routeNumber, DateTime routeIntroductionDate, string initialStop, string finalStop, DateTime routeTime, string note) 
         {
-            _type = type;
-            _routeNumber = routeNumber;
-            _routeIntroductionDate = routeIntroductionDate;
-            _initialStop = initialStop;
-            _finalStop = finalStop;
-            _routeTime = routeTime;
-            _note = note;
+            Type = type;
+            RouteNumber = routeNumber;
+            RouteIntroductionDate = routeIntroductionDate;
+            InitialStop = initialStop;
+            FinalStop = finalStop;
+            RouteTime = routeTime;
+            Note = note;
         }
 
         public Transport GetTransport() => this;
 
+        private string GetType()
+        {
+            if (Type == TransportType.Bus)
+                return "Автобус";
+            else if (Type == TransportType.Shuttle)
+                return "Маршрутка";
+            else if (Type == TransportType.Streetcar)
+                return "Трамвай";
+            else
+                return "Метро";
+        }
+
         public override string ToString()
         {
-            return _type.ToString() + " " + _routeNumber.ToString() + " " + _routeIntroductionDate.ToString() + " " 
-                + _initialStop.ToString() + " " + _finalStop.ToString() + " " + _routeTime.ToString() + " " + _note.ToString();
+            return GetType() + " " + RouteNumber.ToString() + " " + RouteIntroductionDate.ToString($"d") + " " 
+                + InitialStop.ToString() + " " + FinalStop.ToString() + " " + RouteTime.ToString($"t") + " " + Note.ToString();
         }
     }
 }
