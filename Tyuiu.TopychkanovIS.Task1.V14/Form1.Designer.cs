@@ -40,18 +40,25 @@
             this.comboBoxRouteTimeMin_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxNote_TIS = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelType_TIS = new System.Windows.Forms.Label();
-            this.labelNumber_TIS = new System.Windows.Forms.Label();
-            this.labelIntroduction_TIS = new System.Windows.Forms.Label();
-            this.labelIntial_TIS = new System.Windows.Forms.Label();
-            this.labelFinal_TIS = new System.Windows.Forms.Label();
-            this.labelTime_TIS = new System.Windows.Forms.Label();
-            this.labelNote_TIS = new System.Windows.Forms.Label();
-            this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
-            this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
             this.buttonFindTransport_TIS = new System.Windows.Forms.Button();
+            this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
+            this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
+            this.labelNote_TIS = new System.Windows.Forms.Label();
+            this.labelTime_TIS = new System.Windows.Forms.Label();
+            this.labelFinal_TIS = new System.Windows.Forms.Label();
+            this.labelIntial_TIS = new System.Windows.Forms.Label();
+            this.labelIntroduction_TIS = new System.Windows.Forms.Label();
+            this.labelNumber_TIS = new System.Windows.Forms.Label();
+            this.labelType_TIS = new System.Windows.Forms.Label();
             this.comboBoxFilterType_TIS = new System.Windows.Forms.ComboBox();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
+            this.ColumnTransportType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteIntroduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInitialStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFinalStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,29 +71,46 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1381, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1782, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTransportType,
+            this.ColumnRouteNumber,
+            this.ColumnRouteIntroduction,
+            this.ColumnInitialStop,
+            this.ColumnFinalStop,
+            this.ColumnRouteTime,
+            this.ColumnNote});
             this.dataGridView1.Location = new System.Drawing.Point(31, 134);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(997, 317);
             this.dataGridView1.TabIndex = 1;
             // 
             // comboBoxTransportType_TIS
             // 
+            this.comboBoxTransportType_TIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTransportType_TIS.FormattingEnabled = true;
+            this.comboBoxTransportType_TIS.Items.AddRange(new object[] {
+            "Автобус",
+            "Маршрутка",
+            "Трамвай",
+            "Метро"});
             this.comboBoxTransportType_TIS.Location = new System.Drawing.Point(182, 64);
             this.comboBoxTransportType_TIS.Name = "comboBoxTransportType_TIS";
             this.comboBoxTransportType_TIS.Size = new System.Drawing.Size(121, 24);
@@ -95,9 +119,11 @@
             // textBoxTransportNumber_TIS
             // 
             this.textBoxTransportNumber_TIS.Location = new System.Drawing.Point(182, 111);
+            this.textBoxTransportNumber_TIS.MaxLength = 5;
             this.textBoxTransportNumber_TIS.Name = "textBoxTransportNumber_TIS";
             this.textBoxTransportNumber_TIS.Size = new System.Drawing.Size(100, 22);
             this.textBoxTransportNumber_TIS.TabIndex = 3;
+            this.textBoxTransportNumber_TIS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTransportNumber_TIS_KeyPress);
             // 
             // dateTimePickerRouteIntroduction_TIS
             // 
@@ -109,20 +135,32 @@
             // textBoxInitialStop_TIS
             // 
             this.textBoxInitialStop_TIS.Location = new System.Drawing.Point(182, 206);
+            this.textBoxInitialStop_TIS.MaxLength = 50;
             this.textBoxInitialStop_TIS.Name = "textBoxInitialStop_TIS";
-            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(100, 22);
+            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(200, 22);
             this.textBoxInitialStop_TIS.TabIndex = 5;
             // 
             // textBoxFinalStop_TIS
             // 
             this.textBoxFinalStop_TIS.Location = new System.Drawing.Point(182, 247);
+            this.textBoxFinalStop_TIS.MaxLength = 50;
             this.textBoxFinalStop_TIS.Name = "textBoxFinalStop_TIS";
-            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(100, 22);
+            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(200, 22);
             this.textBoxFinalStop_TIS.TabIndex = 6;
             // 
             // comboBoxRouteHours_TIS
             // 
+            this.comboBoxRouteHours_TIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRouteHours_TIS.FormattingEnabled = true;
+            this.comboBoxRouteHours_TIS.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
             this.comboBoxRouteHours_TIS.Location = new System.Drawing.Point(182, 288);
             this.comboBoxRouteHours_TIS.Name = "comboBoxRouteHours_TIS";
             this.comboBoxRouteHours_TIS.Size = new System.Drawing.Size(57, 24);
@@ -130,7 +168,69 @@
             // 
             // comboBoxRouteTimeMin_TIS
             // 
+            this.comboBoxRouteTimeMin_TIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRouteTimeMin_TIS.FormattingEnabled = true;
+            this.comboBoxRouteTimeMin_TIS.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
             this.comboBoxRouteTimeMin_TIS.Location = new System.Drawing.Point(245, 288);
             this.comboBoxRouteTimeMin_TIS.Name = "comboBoxRouteTimeMin_TIS";
             this.comboBoxRouteTimeMin_TIS.Size = new System.Drawing.Size(58, 24);
@@ -140,7 +240,7 @@
             // 
             this.textBoxNote_TIS.Location = new System.Drawing.Point(182, 333);
             this.textBoxNote_TIS.Name = "textBoxNote_TIS";
-            this.textBoxNote_TIS.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNote_TIS.Size = new System.Drawing.Size(200, 22);
             this.textBoxNote_TIS.TabIndex = 9;
             // 
             // groupBox1
@@ -163,92 +263,11 @@
             this.groupBox1.Controls.Add(this.comboBoxRouteHours_TIS);
             this.groupBox1.Controls.Add(this.textBoxInitialStop_TIS);
             this.groupBox1.Controls.Add(this.textBoxFinalStop_TIS);
-            this.groupBox1.Location = new System.Drawing.Point(830, 57);
+            this.groupBox1.Location = new System.Drawing.Point(1034, 57);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(528, 394);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            // 
-            // labelType_TIS
-            // 
-            this.labelType_TIS.AutoSize = true;
-            this.labelType_TIS.Location = new System.Drawing.Point(19, 67);
-            this.labelType_TIS.Name = "labelType_TIS";
-            this.labelType_TIS.Size = new System.Drawing.Size(32, 16);
-            this.labelType_TIS.TabIndex = 10;
-            this.labelType_TIS.Text = "Тип";
-            // 
-            // labelNumber_TIS
-            // 
-            this.labelNumber_TIS.AutoSize = true;
-            this.labelNumber_TIS.Location = new System.Drawing.Point(19, 117);
-            this.labelNumber_TIS.Name = "labelNumber_TIS";
-            this.labelNumber_TIS.Size = new System.Drawing.Size(50, 16);
-            this.labelNumber_TIS.TabIndex = 11;
-            this.labelNumber_TIS.Text = "Номер";
-            // 
-            // labelIntroduction_TIS
-            // 
-            this.labelIntroduction_TIS.AutoSize = true;
-            this.labelIntroduction_TIS.Location = new System.Drawing.Point(19, 166);
-            this.labelIntroduction_TIS.Name = "labelIntroduction_TIS";
-            this.labelIntroduction_TIS.Size = new System.Drawing.Size(105, 16);
-            this.labelIntroduction_TIS.TabIndex = 12;
-            this.labelIntroduction_TIS.Text = "Дата введения";
-            // 
-            // labelIntial_TIS
-            // 
-            this.labelIntial_TIS.AutoSize = true;
-            this.labelIntial_TIS.Location = new System.Drawing.Point(19, 212);
-            this.labelIntial_TIS.Name = "labelIntial_TIS";
-            this.labelIntial_TIS.Size = new System.Drawing.Size(151, 16);
-            this.labelIntial_TIS.TabIndex = 13;
-            this.labelIntial_TIS.Text = "Начальная остановка";
-            // 
-            // labelFinal_TIS
-            // 
-            this.labelFinal_TIS.AutoSize = true;
-            this.labelFinal_TIS.Location = new System.Drawing.Point(19, 247);
-            this.labelFinal_TIS.Name = "labelFinal_TIS";
-            this.labelFinal_TIS.Size = new System.Drawing.Size(142, 16);
-            this.labelFinal_TIS.TabIndex = 14;
-            this.labelFinal_TIS.Text = "Конечная остановка";
-            // 
-            // labelTime_TIS
-            // 
-            this.labelTime_TIS.AutoSize = true;
-            this.labelTime_TIS.Location = new System.Drawing.Point(19, 288);
-            this.labelTime_TIS.Name = "labelTime_TIS";
-            this.labelTime_TIS.Size = new System.Drawing.Size(93, 16);
-            this.labelTime_TIS.TabIndex = 15;
-            this.labelTime_TIS.Text = "Время в пути";
-            // 
-            // labelNote_TIS
-            // 
-            this.labelNote_TIS.AutoSize = true;
-            this.labelNote_TIS.Location = new System.Drawing.Point(19, 333);
-            this.labelNote_TIS.Name = "labelNote_TIS";
-            this.labelNote_TIS.Size = new System.Drawing.Size(90, 16);
-            this.labelNote_TIS.TabIndex = 16;
-            this.labelNote_TIS.Text = "Примечание";
-            // 
-            // buttonAddTransport_TIS
-            // 
-            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(420, 59);
-            this.buttonAddTransport_TIS.Name = "buttonAddTransport_TIS";
-            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(87, 23);
-            this.buttonAddTransport_TIS.TabIndex = 17;
-            this.buttonAddTransport_TIS.Text = "Добавить";
-            this.buttonAddTransport_TIS.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditTransport_TIS
-            // 
-            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(387, 110);
-            this.buttonEditTransport_TIS.Name = "buttonEditTransport_TIS";
-            this.buttonEditTransport_TIS.Size = new System.Drawing.Size(120, 23);
-            this.buttonEditTransport_TIS.TabIndex = 18;
-            this.buttonEditTransport_TIS.Text = "Редактировать";
-            this.buttonEditTransport_TIS.UseVisualStyleBackColor = true;
             // 
             // buttonFindTransport_TIS
             // 
@@ -259,9 +278,97 @@
             this.buttonFindTransport_TIS.Text = "Поиск";
             this.buttonFindTransport_TIS.UseVisualStyleBackColor = true;
             // 
+            // buttonEditTransport_TIS
+            // 
+            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(387, 110);
+            this.buttonEditTransport_TIS.Name = "buttonEditTransport_TIS";
+            this.buttonEditTransport_TIS.Size = new System.Drawing.Size(120, 23);
+            this.buttonEditTransport_TIS.TabIndex = 18;
+            this.buttonEditTransport_TIS.Text = "Редактировать";
+            this.buttonEditTransport_TIS.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddTransport_TIS
+            // 
+            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(420, 59);
+            this.buttonAddTransport_TIS.Name = "buttonAddTransport_TIS";
+            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(87, 23);
+            this.buttonAddTransport_TIS.TabIndex = 17;
+            this.buttonAddTransport_TIS.Text = "Добавить";
+            this.buttonAddTransport_TIS.UseVisualStyleBackColor = true;
+            this.buttonAddTransport_TIS.Click += new System.EventHandler(this.buttonAddTransport_TIS_Click);
+            // 
+            // labelNote_TIS
+            // 
+            this.labelNote_TIS.AutoSize = true;
+            this.labelNote_TIS.Location = new System.Drawing.Point(19, 333);
+            this.labelNote_TIS.Name = "labelNote_TIS";
+            this.labelNote_TIS.Size = new System.Drawing.Size(90, 16);
+            this.labelNote_TIS.TabIndex = 16;
+            this.labelNote_TIS.Text = "Примечание";
+            // 
+            // labelTime_TIS
+            // 
+            this.labelTime_TIS.AutoSize = true;
+            this.labelTime_TIS.Location = new System.Drawing.Point(19, 288);
+            this.labelTime_TIS.Name = "labelTime_TIS";
+            this.labelTime_TIS.Size = new System.Drawing.Size(93, 16);
+            this.labelTime_TIS.TabIndex = 15;
+            this.labelTime_TIS.Text = "Время в пути";
+            // 
+            // labelFinal_TIS
+            // 
+            this.labelFinal_TIS.AutoSize = true;
+            this.labelFinal_TIS.Location = new System.Drawing.Point(19, 247);
+            this.labelFinal_TIS.Name = "labelFinal_TIS";
+            this.labelFinal_TIS.Size = new System.Drawing.Size(142, 16);
+            this.labelFinal_TIS.TabIndex = 14;
+            this.labelFinal_TIS.Text = "Конечная остановка";
+            // 
+            // labelIntial_TIS
+            // 
+            this.labelIntial_TIS.AutoSize = true;
+            this.labelIntial_TIS.Location = new System.Drawing.Point(19, 212);
+            this.labelIntial_TIS.Name = "labelIntial_TIS";
+            this.labelIntial_TIS.Size = new System.Drawing.Size(151, 16);
+            this.labelIntial_TIS.TabIndex = 13;
+            this.labelIntial_TIS.Text = "Начальная остановка";
+            // 
+            // labelIntroduction_TIS
+            // 
+            this.labelIntroduction_TIS.AutoSize = true;
+            this.labelIntroduction_TIS.Location = new System.Drawing.Point(19, 166);
+            this.labelIntroduction_TIS.Name = "labelIntroduction_TIS";
+            this.labelIntroduction_TIS.Size = new System.Drawing.Size(105, 16);
+            this.labelIntroduction_TIS.TabIndex = 12;
+            this.labelIntroduction_TIS.Text = "Дата введения";
+            // 
+            // labelNumber_TIS
+            // 
+            this.labelNumber_TIS.AutoSize = true;
+            this.labelNumber_TIS.Location = new System.Drawing.Point(19, 117);
+            this.labelNumber_TIS.Name = "labelNumber_TIS";
+            this.labelNumber_TIS.Size = new System.Drawing.Size(50, 16);
+            this.labelNumber_TIS.TabIndex = 11;
+            this.labelNumber_TIS.Text = "Номер";
+            // 
+            // labelType_TIS
+            // 
+            this.labelType_TIS.AutoSize = true;
+            this.labelType_TIS.Location = new System.Drawing.Point(19, 67);
+            this.labelType_TIS.Name = "labelType_TIS";
+            this.labelType_TIS.Size = new System.Drawing.Size(32, 16);
+            this.labelType_TIS.TabIndex = 10;
+            this.labelType_TIS.Text = "Тип";
+            // 
             // comboBoxFilterType_TIS
             // 
+            this.comboBoxFilterType_TIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFilterType_TIS.FormattingEnabled = true;
+            this.comboBoxFilterType_TIS.Items.AddRange(new object[] {
+            "Автобус",
+            "Маршрутка",
+            "Трамвай",
+            "Метро"});
             this.comboBoxFilterType_TIS.Location = new System.Drawing.Point(673, 57);
             this.comboBoxFilterType_TIS.Name = "comboBoxFilterType_TIS";
             this.comboBoxFilterType_TIS.Size = new System.Drawing.Size(121, 24);
@@ -276,11 +383,74 @@
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
             // 
+            // ColumnTransportType
+            // 
+            this.ColumnTransportType.HeaderText = "Вид";
+            this.ColumnTransportType.MinimumWidth = 6;
+            this.ColumnTransportType.Name = "ColumnTransportType";
+            this.ColumnTransportType.ReadOnly = true;
+            this.ColumnTransportType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnTransportType.Width = 80;
+            // 
+            // ColumnRouteNumber
+            // 
+            this.ColumnRouteNumber.HeaderText = "Номер";
+            this.ColumnRouteNumber.MinimumWidth = 6;
+            this.ColumnRouteNumber.Name = "ColumnRouteNumber";
+            this.ColumnRouteNumber.ReadOnly = true;
+            this.ColumnRouteNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteNumber.Width = 80;
+            // 
+            // ColumnRouteIntroduction
+            // 
+            this.ColumnRouteIntroduction.HeaderText = "Дата введения";
+            this.ColumnRouteIntroduction.MinimumWidth = 6;
+            this.ColumnRouteIntroduction.Name = "ColumnRouteIntroduction";
+            this.ColumnRouteIntroduction.ReadOnly = true;
+            this.ColumnRouteIntroduction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteIntroduction.Width = 80;
+            // 
+            // ColumnInitialStop
+            // 
+            this.ColumnInitialStop.HeaderText = "Начальная остановка";
+            this.ColumnInitialStop.MinimumWidth = 6;
+            this.ColumnInitialStop.Name = "ColumnInitialStop";
+            this.ColumnInitialStop.ReadOnly = true;
+            this.ColumnInitialStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnInitialStop.Width = 125;
+            // 
+            // ColumnFinalStop
+            // 
+            this.ColumnFinalStop.HeaderText = "Конечная остановка";
+            this.ColumnFinalStop.MinimumWidth = 6;
+            this.ColumnFinalStop.Name = "ColumnFinalStop";
+            this.ColumnFinalStop.ReadOnly = true;
+            this.ColumnFinalStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnFinalStop.Width = 125;
+            // 
+            // ColumnRouteTime
+            // 
+            this.ColumnRouteTime.HeaderText = "Время в пути";
+            this.ColumnRouteTime.MinimumWidth = 6;
+            this.ColumnRouteTime.Name = "ColumnRouteTime";
+            this.ColumnRouteTime.ReadOnly = true;
+            this.ColumnRouteTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteTime.Width = 80;
+            // 
+            // ColumnNote
+            // 
+            this.ColumnNote.HeaderText = "Примечание";
+            this.ColumnNote.MinimumWidth = 6;
+            this.ColumnNote.Name = "ColumnNote";
+            this.ColumnNote.ReadOnly = true;
+            this.ColumnNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnNote.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 629);
+            this.ClientSize = new System.Drawing.Size(1782, 629);
             this.Controls.Add(this.labelTransportsCount_TIS);
             this.Controls.Add(this.comboBoxFilterType_TIS);
             this.Controls.Add(this.groupBox1);
@@ -289,6 +459,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -325,6 +496,13 @@
         private System.Windows.Forms.Label labelTime_TIS;
         private System.Windows.Forms.ComboBox comboBoxFilterType_TIS;
         private System.Windows.Forms.Label labelTransportsCount_TIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransportType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteIntroduction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInitialStop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFinalStop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNote;
     }
 }
 
