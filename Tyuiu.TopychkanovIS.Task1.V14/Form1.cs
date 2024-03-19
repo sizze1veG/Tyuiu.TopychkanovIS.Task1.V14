@@ -381,5 +381,11 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             }
            
         }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form = new Form3();
+            form.ShowDialog();
+        }
     }
 }
