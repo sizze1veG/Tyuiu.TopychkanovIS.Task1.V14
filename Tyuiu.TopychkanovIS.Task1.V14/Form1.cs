@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CsvHelper;
-using CsvHelper.Configuration;
 
 namespace Tyuiu.TopychkanovIS.Task1.V14
 {
@@ -67,18 +61,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
                     labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
 
-                    #region Cleare fields
-
-                    comboBoxTransportType_TIS.SelectedIndex = -1;
-                    textBoxTransportNumber_TIS.Clear();
-                    dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
-                    textBoxInitialStop_TIS.Clear();
-                    textBoxFinalStop_TIS.Clear();
-                    comboBoxRouteHours_TIS.SelectedIndex = -1;
-                    comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
-                    textBoxNote_TIS.Clear();
-
-                    #endregion
+                    CleareAllFields();
 
                 }
             }
@@ -158,18 +141,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 buttonEditTransport_TIS.Enabled = false;
                 buttonDeleteTransport_TIS.Enabled = false;
 
-                #region Clear fields
-
-                comboBoxTransportType_TIS.SelectedIndex = -1;
-                textBoxTransportNumber_TIS.Clear();
-                dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
-                textBoxInitialStop_TIS.Clear();
-                textBoxFinalStop_TIS.Clear();
-                comboBoxRouteHours_TIS.SelectedIndex = -1;
-                comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
-                textBoxNote_TIS.Clear();
-
-                #endregion
+                CleareAllFields();
             }
             else
             {
@@ -281,28 +253,16 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                     dataGridView1.CurrentRow.Cells[5].Value = transport.RouteTime.ToString($"t");
                     dataGridView1.CurrentRow.Cells[6].Value = transport.Note;
 
-                    #region Clear fields
+                    CleareAllFields();
 
-                    comboBoxTransportType_TIS.SelectedIndex = -1;
-                    textBoxTransportNumber_TIS.Clear();
-                    dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
-                    textBoxInitialStop_TIS.Clear();
-                    textBoxFinalStop_TIS.Clear();
-                    comboBoxRouteHours_TIS.SelectedIndex = -1;
-                    comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
-                    textBoxNote_TIS.Clear();
-
-                    #endregion
+                    buttonDeleteTransport_TIS.Enabled = false;
+                    buttonEditTransport_TIS.Enabled = false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             } 
-        }
-
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
         }
 
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -356,18 +316,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                     }
                 }
 
-                #region Clear fields
-
-                comboBoxTransportType_TIS.SelectedIndex = -1;
-                textBoxTransportNumber_TIS.Clear();
-                dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
-                textBoxInitialStop_TIS.Clear();
-                textBoxFinalStop_TIS.Clear();
-                comboBoxRouteHours_TIS.SelectedIndex = -1;
-                comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
-                textBoxNote_TIS.Clear();
-
-                #endregion
+                CleareAllFields();
 
                 buttonAddTransport_TIS.Enabled = false;
                 buttonEditTransport_TIS.Enabled = false;
@@ -386,6 +335,18 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
         {
             Form3 form = new Form3();
             form.ShowDialog();
+        }
+
+        private void CleareAllFields()
+        {
+            comboBoxTransportType_TIS.SelectedIndex = -1;
+            textBoxTransportNumber_TIS.Clear();
+            dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
+            textBoxInitialStop_TIS.Clear();
+            textBoxFinalStop_TIS.Clear();
+            comboBoxRouteHours_TIS.SelectedIndex = -1;
+            comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
+            textBoxNote_TIS.Clear();
         }
     }
 }
