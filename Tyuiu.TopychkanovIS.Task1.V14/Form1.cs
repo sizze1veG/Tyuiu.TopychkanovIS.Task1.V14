@@ -65,6 +65,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                         transport.InitialStop, transport.FinalStop, 
                         transport.RouteTime.ToString($"t"), transport.Note);
 
+                    labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
+
                     #region Cleare fields
 
                     comboBoxTransportType_TIS.SelectedIndex = -1;
@@ -144,6 +146,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 transports.Add(transport);
                 dataGridView1.Rows.Add(line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
             }
+
+            labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -368,6 +372,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 buttonAddTransport_TIS.Enabled = false;
                 buttonEditTransport_TIS.Enabled = false;
                 buttonDeleteTransport_TIS.Enabled = false;
+
+                labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
             }
             catch (Exception ex)
             {
