@@ -206,12 +206,118 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private void buttonEditTransport_TIS_Click(object sender, EventArgs e)
         {
-            if (CheckComboBox(comboBoxTransportType_TIS) && CheckTextBoxTransportNumber()
+            try
+            {
+                if (CheckComboBox(comboBoxTransportType_TIS) && CheckTextBoxTransportNumber()
                 && CheckDateRouteIntroduction() && CheckTransportStop(textBoxInitialStop_TIS)
                 && CheckTransportStop(textBoxFinalStop_TIS) && CheckComboBox(comboBoxRouteHours_TIS)
                 && CheckComboBox(comboBoxRouteTimeMin_TIS))
+                {
+                    #region Remove transport
+
+                    TransportType type;
+                    if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Автобус")
+                        type = TransportType.Bus;
+                    else if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Маршрутка")
+                        type = TransportType.Shuttle;
+                    else if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Трамвай")
+                        type = TransportType.Streetcar;
+                    else
+                        type = TransportType.Subway;
+
+                    Transport transportToEdit = new Transport(type, Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value),
+                        Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value), dataGridView1.CurrentRow.Cells[3].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[4].Value.ToString(), Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value),
+                        dataGridView1.CurrentRow.Cells[6].Value.ToString());
+
+                    for (int i = 0; i < transports.Count; i++)
+                    {
+                        if (transports[i].CompareTo(transportToEdit))
+                        {
+                            transports.RemoveAt(i);
+                            break;
+                        }
+                    }
+
+                    #endregion
+
+                    #region Get transport type
+
+                    if (comboBoxTransportType_TIS.Text == "Автобус")
+                        type = TransportType.Bus;
+                    else if (comboBoxTransportType_TIS.Text == "Маршрутка")
+                        type = TransportType.Shuttle;
+                    else if (comboBoxTransportType_TIS.Text == "Трамвай")
+                        type = TransportType.Streetcar;
+                    else
+                        type = TransportType.Subway;
+
+                    #endregion
+
+                    DateTime routeTime = new DateTime(1, 1, 1, Convert.ToInt32(comboBoxRouteHours_TIS.Text), Convert.ToInt32(comboBoxRouteTimeMin_TIS.Text), 0);
+
+                    Transport transport = new Transport(type, Convert.ToInt32(textBoxTransportNumber_TIS.Text),
+                        Convert.ToDateTime(dateTimePickerRouteIntroduction_TIS.Value),
+                        textBoxInitialStop_TIS.Text, textBoxFinalStop_TIS.Text, routeTime, textBoxNote_TIS.Text);
+
+                    transports.Add(transport);
+
+                    using (var streamWriter = new StreamWriter(@"Data.csv", false, Encoding.GetEncoding(1251)))
+                    {
+                        foreach (var tr in transports)
+                        {
+                            streamWriter.WriteLine(tr.ToString());
+                        }
+                    }
+
+                    dataGridView1.CurrentRow.Cells[0].Value = comboBoxTransportType_TIS.Text;
+                    dataGridView1.CurrentRow.Cells[1].Value = transport.RouteNumber;
+                    dataGridView1.CurrentRow.Cells[2].Value = transport.RouteIntroductionDate.ToString($"d");
+                    dataGridView1.CurrentRow.Cells[3].Value = transport.InitialStop;
+                    dataGridView1.CurrentRow.Cells[4].Value = transport.FinalStop;
+                    dataGridView1.CurrentRow.Cells[5].Value = transport.RouteTime.ToString($"t");
+                    dataGridView1.CurrentRow.Cells[6].Value = transport.Note;
+
+                    #region Clear fields
+
+                    comboBoxTransportType_TIS.SelectedIndex = -1;
+                    textBoxTransportNumber_TIS.Clear();
+                    dateTimePickerRouteIntroduction_TIS.Value = DateTime.Now;
+                    textBoxInitialStop_TIS.Clear();
+                    textBoxFinalStop_TIS.Clear();
+                    comboBoxRouteHours_TIS.SelectedIndex = -1;
+                    comboBoxRouteTimeMin_TIS.SelectedIndex = -1;
+                    textBoxNote_TIS.Clear();
+
+                    #endregion
+                }
+            }
+            catch (Exception ex)
             {
-                #region Remove transport
+                MessageBox.Show(ex.Message);
+            } 
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            buttonFindTransport_TIS.Enabled = true;
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 1)
+            {
+                buttonFindTransport_TIS.Enabled = false;
+                buttonDeleteTransport_TIS.Enabled = false;
+                buttonEditTransport_TIS.Enabled = false;
+            }
+        }
+
+        private void buttonDeleteTransport_TIS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                #region Get transport type
 
                 TransportType type;
                 if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == "Автобус")
@@ -223,42 +329,23 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 else
                     type = TransportType.Subway;
 
-                Transport transportToEdit = new Transport(type, Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value),
+                #endregion
+
+                Transport transport = new Transport(type, Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value),
                     Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value), dataGridView1.CurrentRow.Cells[3].Value.ToString(),
                     dataGridView1.CurrentRow.Cells[4].Value.ToString(), Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value),
                     dataGridView1.CurrentRow.Cells[6].Value.ToString());
 
                 for (int i = 0; i < transports.Count; i++)
                 {
-                    if (transports[i].CompareTo(transportToEdit))
+                    if (transports[i].CompareTo(transport))
                     {
                         transports.RemoveAt(i);
                         break;
                     }
                 }
 
-                #endregion
-
-                #region Get transport type
-
-                if (comboBoxTransportType_TIS.Text == "Автобус")
-                    type = TransportType.Bus;
-                else if (comboBoxTransportType_TIS.Text == "Маршрутка")
-                    type = TransportType.Shuttle;
-                else if (comboBoxTransportType_TIS.Text == "Трамвай")
-                    type = TransportType.Streetcar;
-                else
-                    type = TransportType.Subway;
-
-                #endregion
-
-                DateTime routeTime = new DateTime(1, 1, 1, Convert.ToInt32(comboBoxRouteHours_TIS.Text), Convert.ToInt32(comboBoxRouteTimeMin_TIS.Text), 0);
-
-                Transport transport = new Transport(type, Convert.ToInt32(textBoxTransportNumber_TIS.Text),
-                    Convert.ToDateTime(dateTimePickerRouteIntroduction_TIS.Value),
-                    textBoxInitialStop_TIS.Text, textBoxFinalStop_TIS.Text, routeTime, textBoxNote_TIS.Text);
-
-                transports.Add(transport);
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
 
                 using (var streamWriter = new StreamWriter(@"Data.csv", false, Encoding.GetEncoding(1251)))
                 {
@@ -267,14 +354,6 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                         streamWriter.WriteLine(tr.ToString());
                     }
                 }
-
-                dataGridView1.CurrentRow.Cells[0].Value = comboBoxTransportType_TIS.Text;
-                dataGridView1.CurrentRow.Cells[1].Value = transport.RouteNumber;
-                dataGridView1.CurrentRow.Cells[2].Value = transport.RouteIntroductionDate.ToString($"d");
-                dataGridView1.CurrentRow.Cells[3].Value = transport.InitialStop;
-                dataGridView1.CurrentRow.Cells[4].Value = transport.FinalStop;
-                dataGridView1.CurrentRow.Cells[5].Value = transport.RouteTime.ToString($"t");
-                dataGridView1.CurrentRow.Cells[6].Value = transport.Note;
 
                 #region Clear fields
 
@@ -288,22 +367,16 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 textBoxNote_TIS.Clear();
 
                 #endregion
-            }
-        }
 
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            buttonFindTransport_TIS.Enabled = true;
-        }
-
-        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                buttonFindTransport_TIS.Enabled = false;
-                buttonDeleteTransport_TIS.Enabled = false;
+                buttonAddTransport_TIS.Enabled = false;
                 buttonEditTransport_TIS.Enabled = false;
+                buttonDeleteTransport_TIS.Enabled = false;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

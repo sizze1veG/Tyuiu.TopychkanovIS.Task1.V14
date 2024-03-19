@@ -342,6 +342,7 @@
             this.buttonDeleteTransport_TIS.TabIndex = 20;
             this.buttonDeleteTransport_TIS.Text = "Удалить";
             this.buttonDeleteTransport_TIS.UseVisualStyleBackColor = true;
+            this.buttonDeleteTransport_TIS.Click += new System.EventHandler(this.buttonDeleteTransport_TIS_Click);
             // 
             // buttonFindTransport_TIS
             // 
