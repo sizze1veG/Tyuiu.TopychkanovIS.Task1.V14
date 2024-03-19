@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tyuiu.TopychkanovIS.Task1.V14
 {
@@ -26,8 +22,6 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             RouteTime = routeTime;
             Note = note;
         }
-
-        public Transport GetTransport() => this;
 
         private string GetType()
         {
