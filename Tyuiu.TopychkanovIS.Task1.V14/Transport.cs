@@ -46,5 +46,17 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             return GetType() + " " + RouteNumber.ToString() + " " + RouteIntroductionDate.ToString($"d") + " " 
                 + InitialStop.ToString() + " " + FinalStop.ToString() + " " + RouteTime.ToString($"t") + " " + Note.ToString();
         }
+
+        public bool CompareTo(Transport transport)
+        {
+            return Type == transport.Type && RouteNumber == transport.RouteNumber 
+                && RouteIntroductionDate.Year == transport.RouteIntroductionDate.Year 
+                && RouteIntroductionDate.Day == transport.RouteIntroductionDate.Day
+                && RouteIntroductionDate.Month == transport.RouteIntroductionDate.Month
+                && InitialStop == transport.InitialStop && FinalStop == transport.FinalStop 
+                && RouteTime.Hour == transport.RouteTime.Hour
+                && RouteTime.Minute == transport.RouteTime.Minute
+                && Note == transport.Note;
+        }
     }
 }
