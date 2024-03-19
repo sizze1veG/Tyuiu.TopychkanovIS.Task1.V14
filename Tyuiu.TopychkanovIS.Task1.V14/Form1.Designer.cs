@@ -47,6 +47,7 @@
             this.comboBoxRouteTimeMin_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxNote_TIS = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonDeleteTransport_TIS = new System.Windows.Forms.Button();
             this.buttonFindTransport_TIS = new System.Windows.Forms.Button();
             this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
             this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.labelType_TIS = new System.Windows.Forms.Label();
             this.comboBoxFilterType_TIS = new System.Windows.Forms.ComboBox();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
-            this.buttonDeleteTransport_TIS = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -99,6 +99,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(997, 317);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // ColumnTransportType
@@ -332,6 +334,15 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // buttonDeleteTransport_TIS
+            // 
+            this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(432, 212);
+            this.buttonDeleteTransport_TIS.Name = "buttonDeleteTransport_TIS";
+            this.buttonDeleteTransport_TIS.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteTransport_TIS.TabIndex = 20;
+            this.buttonDeleteTransport_TIS.Text = "Удалить";
+            this.buttonDeleteTransport_TIS.UseVisualStyleBackColor = true;
+            // 
             // buttonFindTransport_TIS
             // 
             this.buttonFindTransport_TIS.Location = new System.Drawing.Point(432, 162);
@@ -446,15 +457,6 @@
             this.labelTransportsCount_TIS.Size = new System.Drawing.Size(85, 16);
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
-            // 
-            // buttonDeleteTransport_TIS
-            // 
-            this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(432, 212);
-            this.buttonDeleteTransport_TIS.Name = "buttonDeleteTransport_TIS";
-            this.buttonDeleteTransport_TIS.Size = new System.Drawing.Size(75, 23);
-            this.buttonDeleteTransport_TIS.TabIndex = 20;
-            this.buttonDeleteTransport_TIS.Text = "Удалить";
-            this.buttonDeleteTransport_TIS.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
