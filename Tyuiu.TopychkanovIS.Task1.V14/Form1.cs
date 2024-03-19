@@ -111,6 +111,40 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             buttonAddTransport_TIS.Enabled = false;
             buttonEditTransport_TIS.Enabled = false;
             buttonDeleteTransport_TIS.Enabled = false;
+            buttonFindTransport_TIS.Enabled = false;
+
+            if (!File.Exists("Data.csv"))
+            {
+                using (FileStream fs = File.Create("Data.csv"))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes("");
+                }
+            }
+
+            List<string[]> lines = File.ReadAllLines("Data.csv", Encoding.GetEncoding(1251)).Select(x => x.Split(' ')).ToList();
+            foreach (var line in lines)
+            {
+                #region Get transport type
+
+                TransportType type;
+                if (line[0] == "Автобус")
+                    type = TransportType.Bus;
+                else if (line[0] == "Маршрутка")
+                    type = TransportType.Shuttle;
+                else if (line[0] == "Трамвай")
+                    type = TransportType.Streetcar;
+                else
+                    type = TransportType.Subway;
+
+                #endregion
+
+                Transport transport = new Transport(type, Convert.ToInt32(line[1]),
+                    Convert.ToDateTime(line[2]),line[3], line[4], 
+                    Convert.ToDateTime(line[5]), line[6]);
+
+                transports.Add(transport);
+                dataGridView1.Rows.Add(line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
+            }
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -254,6 +288,21 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 textBoxNote_TIS.Clear();
 
                 #endregion
+            }
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            buttonFindTransport_TIS.Enabled = true;
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                buttonFindTransport_TIS.Enabled = false;
+                buttonDeleteTransport_TIS.Enabled = false;
+                buttonEditTransport_TIS.Enabled = false;
             }
         }
     }
