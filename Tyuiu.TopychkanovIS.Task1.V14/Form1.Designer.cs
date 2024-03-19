@@ -31,6 +31,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnTransportType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteIntroduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInitialStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFinalStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRouteTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxTransportType_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxTransportNumber_TIS = new System.Windows.Forms.TextBox();
             this.dateTimePickerRouteIntroduction_TIS = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +47,7 @@
             this.comboBoxRouteTimeMin_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxNote_TIS = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonFindTransport_TIS = new System.Windows.Forms.Button();
+            this.buttonDeleteTransport_TIS = new System.Windows.Forms.Button();
             this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
             this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
             this.labelNote_TIS = new System.Windows.Forms.Label();
@@ -50,15 +57,7 @@
             this.labelIntroduction_TIS = new System.Windows.Forms.Label();
             this.labelNumber_TIS = new System.Windows.Forms.Label();
             this.labelType_TIS = new System.Windows.Forms.Label();
-            this.comboBoxFilterType_TIS = new System.Windows.Forms.ComboBox();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
-            this.ColumnTransportType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRouteNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRouteIntroduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInitialStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFinalStop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRouteTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,8 +82,6 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnTransportType,
@@ -94,13 +91,77 @@
             this.ColumnFinalStop,
             this.ColumnRouteTime,
             this.ColumnNote});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 134);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(997, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(997, 413);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // ColumnTransportType
+            // 
+            this.ColumnTransportType.HeaderText = "Вид";
+            this.ColumnTransportType.MinimumWidth = 6;
+            this.ColumnTransportType.Name = "ColumnTransportType";
+            this.ColumnTransportType.ReadOnly = true;
+            this.ColumnTransportType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnTransportType.Width = 80;
+            // 
+            // ColumnRouteNumber
+            // 
+            this.ColumnRouteNumber.HeaderText = "Номер";
+            this.ColumnRouteNumber.MinimumWidth = 6;
+            this.ColumnRouteNumber.Name = "ColumnRouteNumber";
+            this.ColumnRouteNumber.ReadOnly = true;
+            this.ColumnRouteNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteNumber.Width = 80;
+            // 
+            // ColumnRouteIntroduction
+            // 
+            this.ColumnRouteIntroduction.HeaderText = "Дата введения";
+            this.ColumnRouteIntroduction.MinimumWidth = 6;
+            this.ColumnRouteIntroduction.Name = "ColumnRouteIntroduction";
+            this.ColumnRouteIntroduction.ReadOnly = true;
+            this.ColumnRouteIntroduction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteIntroduction.Width = 80;
+            // 
+            // ColumnInitialStop
+            // 
+            this.ColumnInitialStop.HeaderText = "Начальная остановка";
+            this.ColumnInitialStop.MinimumWidth = 6;
+            this.ColumnInitialStop.Name = "ColumnInitialStop";
+            this.ColumnInitialStop.ReadOnly = true;
+            this.ColumnInitialStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnInitialStop.Width = 125;
+            // 
+            // ColumnFinalStop
+            // 
+            this.ColumnFinalStop.HeaderText = "Конечная остановка";
+            this.ColumnFinalStop.MinimumWidth = 6;
+            this.ColumnFinalStop.Name = "ColumnFinalStop";
+            this.ColumnFinalStop.ReadOnly = true;
+            this.ColumnFinalStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnFinalStop.Width = 125;
+            // 
+            // ColumnRouteTime
+            // 
+            this.ColumnRouteTime.HeaderText = "Время в пути";
+            this.ColumnRouteTime.MinimumWidth = 6;
+            this.ColumnRouteTime.Name = "ColumnRouteTime";
+            this.ColumnRouteTime.ReadOnly = true;
+            this.ColumnRouteTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnRouteTime.Width = 80;
+            // 
+            // ColumnNote
+            // 
+            this.ColumnNote.HeaderText = "Примечание";
+            this.ColumnNote.MinimumWidth = 6;
+            this.ColumnNote.Name = "ColumnNote";
+            this.ColumnNote.ReadOnly = true;
+            this.ColumnNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnNote.Width = 125;
             // 
             // comboBoxTransportType_TIS
             // 
@@ -113,7 +174,7 @@
             "Метро"});
             this.comboBoxTransportType_TIS.Location = new System.Drawing.Point(182, 64);
             this.comboBoxTransportType_TIS.Name = "comboBoxTransportType_TIS";
-            this.comboBoxTransportType_TIS.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxTransportType_TIS.Size = new System.Drawing.Size(165, 24);
             this.comboBoxTransportType_TIS.TabIndex = 2;
             // 
             // textBoxTransportNumber_TIS
@@ -121,7 +182,7 @@
             this.textBoxTransportNumber_TIS.Location = new System.Drawing.Point(182, 111);
             this.textBoxTransportNumber_TIS.MaxLength = 5;
             this.textBoxTransportNumber_TIS.Name = "textBoxTransportNumber_TIS";
-            this.textBoxTransportNumber_TIS.Size = new System.Drawing.Size(100, 22);
+            this.textBoxTransportNumber_TIS.Size = new System.Drawing.Size(165, 22);
             this.textBoxTransportNumber_TIS.TabIndex = 3;
             this.textBoxTransportNumber_TIS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTransportNumber_TIS_KeyPress);
             // 
@@ -129,7 +190,7 @@
             // 
             this.dateTimePickerRouteIntroduction_TIS.Location = new System.Drawing.Point(182, 160);
             this.dateTimePickerRouteIntroduction_TIS.Name = "dateTimePickerRouteIntroduction_TIS";
-            this.dateTimePickerRouteIntroduction_TIS.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerRouteIntroduction_TIS.Size = new System.Drawing.Size(165, 22);
             this.dateTimePickerRouteIntroduction_TIS.TabIndex = 4;
             // 
             // textBoxInitialStop_TIS
@@ -137,7 +198,7 @@
             this.textBoxInitialStop_TIS.Location = new System.Drawing.Point(182, 206);
             this.textBoxInitialStop_TIS.MaxLength = 50;
             this.textBoxInitialStop_TIS.Name = "textBoxInitialStop_TIS";
-            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(200, 22);
+            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(165, 22);
             this.textBoxInitialStop_TIS.TabIndex = 5;
             // 
             // textBoxFinalStop_TIS
@@ -145,7 +206,7 @@
             this.textBoxFinalStop_TIS.Location = new System.Drawing.Point(182, 247);
             this.textBoxFinalStop_TIS.MaxLength = 50;
             this.textBoxFinalStop_TIS.Name = "textBoxFinalStop_TIS";
-            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(200, 22);
+            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(165, 22);
             this.textBoxFinalStop_TIS.TabIndex = 6;
             // 
             // comboBoxRouteHours_TIS
@@ -240,12 +301,12 @@
             // 
             this.textBoxNote_TIS.Location = new System.Drawing.Point(182, 333);
             this.textBoxNote_TIS.Name = "textBoxNote_TIS";
-            this.textBoxNote_TIS.Size = new System.Drawing.Size(200, 22);
+            this.textBoxNote_TIS.Size = new System.Drawing.Size(165, 22);
             this.textBoxNote_TIS.TabIndex = 9;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonFindTransport_TIS);
+            this.groupBox1.Controls.Add(this.buttonDeleteTransport_TIS);
             this.groupBox1.Controls.Add(this.buttonEditTransport_TIS);
             this.groupBox1.Controls.Add(this.buttonAddTransport_TIS);
             this.groupBox1.Controls.Add(this.labelNote_TIS);
@@ -265,33 +326,35 @@
             this.groupBox1.Controls.Add(this.textBoxFinalStop_TIS);
             this.groupBox1.Location = new System.Drawing.Point(1034, 57);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(528, 394);
+            this.groupBox1.Size = new System.Drawing.Size(495, 394);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
-            // buttonFindTransport_TIS
+            // buttonDeleteTransport_TIS
             // 
-            this.buttonFindTransport_TIS.Location = new System.Drawing.Point(432, 162);
-            this.buttonFindTransport_TIS.Name = "buttonFindTransport_TIS";
-            this.buttonFindTransport_TIS.Size = new System.Drawing.Size(75, 23);
-            this.buttonFindTransport_TIS.TabIndex = 19;
-            this.buttonFindTransport_TIS.Text = "Поиск";
-            this.buttonFindTransport_TIS.UseVisualStyleBackColor = true;
+            this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(365, 159);
+            this.buttonDeleteTransport_TIS.Name = "buttonDeleteTransport_TIS";
+            this.buttonDeleteTransport_TIS.Size = new System.Drawing.Size(119, 23);
+            this.buttonDeleteTransport_TIS.TabIndex = 20;
+            this.buttonDeleteTransport_TIS.Text = "Удалить";
+            this.buttonDeleteTransport_TIS.UseVisualStyleBackColor = true;
+            this.buttonDeleteTransport_TIS.Click += new System.EventHandler(this.buttonDeleteTransport_TIS_Click);
             // 
             // buttonEditTransport_TIS
             // 
-            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(387, 110);
+            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(365, 109);
             this.buttonEditTransport_TIS.Name = "buttonEditTransport_TIS";
             this.buttonEditTransport_TIS.Size = new System.Drawing.Size(120, 23);
             this.buttonEditTransport_TIS.TabIndex = 18;
             this.buttonEditTransport_TIS.Text = "Редактировать";
             this.buttonEditTransport_TIS.UseVisualStyleBackColor = true;
+            this.buttonEditTransport_TIS.Click += new System.EventHandler(this.buttonEditTransport_TIS_Click);
             // 
             // buttonAddTransport_TIS
             // 
-            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(420, 59);
+            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(364, 60);
             this.buttonAddTransport_TIS.Name = "buttonAddTransport_TIS";
-            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(87, 23);
+            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(120, 23);
             this.buttonAddTransport_TIS.TabIndex = 17;
             this.buttonAddTransport_TIS.Text = "Добавить";
             this.buttonAddTransport_TIS.UseVisualStyleBackColor = true;
@@ -360,91 +423,14 @@
             this.labelType_TIS.TabIndex = 10;
             this.labelType_TIS.Text = "Тип";
             // 
-            // comboBoxFilterType_TIS
-            // 
-            this.comboBoxFilterType_TIS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterType_TIS.FormattingEnabled = true;
-            this.comboBoxFilterType_TIS.Items.AddRange(new object[] {
-            "Автобус",
-            "Маршрутка",
-            "Трамвай",
-            "Метро"});
-            this.comboBoxFilterType_TIS.Location = new System.Drawing.Point(673, 57);
-            this.comboBoxFilterType_TIS.Name = "comboBoxFilterType_TIS";
-            this.comboBoxFilterType_TIS.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxFilterType_TIS.TabIndex = 11;
-            // 
             // labelTransportsCount_TIS
             // 
             this.labelTransportsCount_TIS.AutoSize = true;
-            this.labelTransportsCount_TIS.Location = new System.Drawing.Point(31, 64);
+            this.labelTransportsCount_TIS.Location = new System.Drawing.Point(1031, 38);
             this.labelTransportsCount_TIS.Name = "labelTransportsCount_TIS";
             this.labelTransportsCount_TIS.Size = new System.Drawing.Size(85, 16);
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
-            // 
-            // ColumnTransportType
-            // 
-            this.ColumnTransportType.HeaderText = "Вид";
-            this.ColumnTransportType.MinimumWidth = 6;
-            this.ColumnTransportType.Name = "ColumnTransportType";
-            this.ColumnTransportType.ReadOnly = true;
-            this.ColumnTransportType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnTransportType.Width = 80;
-            // 
-            // ColumnRouteNumber
-            // 
-            this.ColumnRouteNumber.HeaderText = "Номер";
-            this.ColumnRouteNumber.MinimumWidth = 6;
-            this.ColumnRouteNumber.Name = "ColumnRouteNumber";
-            this.ColumnRouteNumber.ReadOnly = true;
-            this.ColumnRouteNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnRouteNumber.Width = 80;
-            // 
-            // ColumnRouteIntroduction
-            // 
-            this.ColumnRouteIntroduction.HeaderText = "Дата введения";
-            this.ColumnRouteIntroduction.MinimumWidth = 6;
-            this.ColumnRouteIntroduction.Name = "ColumnRouteIntroduction";
-            this.ColumnRouteIntroduction.ReadOnly = true;
-            this.ColumnRouteIntroduction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnRouteIntroduction.Width = 80;
-            // 
-            // ColumnInitialStop
-            // 
-            this.ColumnInitialStop.HeaderText = "Начальная остановка";
-            this.ColumnInitialStop.MinimumWidth = 6;
-            this.ColumnInitialStop.Name = "ColumnInitialStop";
-            this.ColumnInitialStop.ReadOnly = true;
-            this.ColumnInitialStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnInitialStop.Width = 125;
-            // 
-            // ColumnFinalStop
-            // 
-            this.ColumnFinalStop.HeaderText = "Конечная остановка";
-            this.ColumnFinalStop.MinimumWidth = 6;
-            this.ColumnFinalStop.Name = "ColumnFinalStop";
-            this.ColumnFinalStop.ReadOnly = true;
-            this.ColumnFinalStop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnFinalStop.Width = 125;
-            // 
-            // ColumnRouteTime
-            // 
-            this.ColumnRouteTime.HeaderText = "Время в пути";
-            this.ColumnRouteTime.MinimumWidth = 6;
-            this.ColumnRouteTime.Name = "ColumnRouteTime";
-            this.ColumnRouteTime.ReadOnly = true;
-            this.ColumnRouteTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnRouteTime.Width = 80;
-            // 
-            // ColumnNote
-            // 
-            this.ColumnNote.HeaderText = "Примечание";
-            this.ColumnNote.MinimumWidth = 6;
-            this.ColumnNote.Name = "ColumnNote";
-            this.ColumnNote.ReadOnly = true;
-            this.ColumnNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnNote.Width = 125;
             // 
             // Form1
             // 
@@ -452,7 +438,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 629);
             this.Controls.Add(this.labelTransportsCount_TIS);
-            this.Controls.Add(this.comboBoxFilterType_TIS);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -489,12 +474,10 @@
         private System.Windows.Forms.Label labelIntroduction_TIS;
         private System.Windows.Forms.Label labelFinal_TIS;
         private System.Windows.Forms.Label labelIntial_TIS;
-        private System.Windows.Forms.Button buttonFindTransport_TIS;
         private System.Windows.Forms.Button buttonEditTransport_TIS;
         private System.Windows.Forms.Button buttonAddTransport_TIS;
         private System.Windows.Forms.Label labelNote_TIS;
         private System.Windows.Forms.Label labelTime_TIS;
-        private System.Windows.Forms.ComboBox comboBoxFilterType_TIS;
         private System.Windows.Forms.Label labelTransportsCount_TIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransportType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteNumber;
@@ -503,6 +486,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFinalStop;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNote;
+        private System.Windows.Forms.Button buttonDeleteTransport_TIS;
     }
 }
 
