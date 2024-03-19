@@ -111,7 +111,6 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             buttonAddTransport_TIS.Enabled = false;
             buttonEditTransport_TIS.Enabled = false;
             buttonDeleteTransport_TIS.Enabled = false;
-            buttonFindTransport_TIS.Enabled = false;
 
             if (!File.Exists("Data.csv"))
             {
@@ -300,14 +299,12 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            buttonFindTransport_TIS.Enabled = true;
         }
 
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             if (dataGridView1.Rows.Count == 1)
             {
-                buttonFindTransport_TIS.Enabled = false;
                 buttonDeleteTransport_TIS.Enabled = false;
                 buttonEditTransport_TIS.Enabled = false;
             }
