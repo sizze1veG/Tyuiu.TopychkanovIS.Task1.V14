@@ -1,6 +1,6 @@
 ﻿namespace Tyuiu.TopychkanovIS.Task1.V14
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -47,6 +47,7 @@
             this.comboBoxRouteTimeMin_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxNote_TIS = new System.Windows.Forms.TextBox();
             this.groupBoxTransports_TIS = new System.Windows.Forms.GroupBox();
+            this.buttonSearch_TIS = new System.Windows.Forms.Button();
             this.buttonDeleteTransport_TIS = new System.Windows.Forms.Button();
             this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
             this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
             this.labelNumber_TIS = new System.Windows.Forms.Label();
             this.labelType_TIS = new System.Windows.Forms.Label();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
-            this.buttonSearch_TIS = new System.Windows.Forms.Button();
+            this.графикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransports_TIS)).BeginInit();
             this.groupBoxTransports_TIS.SuspendLayout();
@@ -68,17 +69,18 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem});
+            this.оПрограммеToolStripMenuItem,
+            this.графикToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1782, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1782, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -338,6 +340,16 @@
             this.groupBoxTransports_TIS.TabIndex = 10;
             this.groupBoxTransports_TIS.TabStop = false;
             // 
+            // buttonSearch_TIS
+            // 
+            this.buttonSearch_TIS.Location = new System.Drawing.Point(365, 205);
+            this.buttonSearch_TIS.Name = "buttonSearch_TIS";
+            this.buttonSearch_TIS.Size = new System.Drawing.Size(119, 23);
+            this.buttonSearch_TIS.TabIndex = 21;
+            this.buttonSearch_TIS.Text = "Поиск";
+            this.buttonSearch_TIS.UseVisualStyleBackColor = true;
+            this.buttonSearch_TIS.Click += new System.EventHandler(this.buttonSearch_TIS_Click);
+            // 
             // buttonDeleteTransport_TIS
             // 
             this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(365, 159);
@@ -441,17 +453,14 @@
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
             // 
-            // buttonSearch_TIS
+            // графикToolStripMenuItem
             // 
-            this.buttonSearch_TIS.Location = new System.Drawing.Point(365, 205);
-            this.buttonSearch_TIS.Name = "buttonSearch_TIS";
-            this.buttonSearch_TIS.Size = new System.Drawing.Size(119, 23);
-            this.buttonSearch_TIS.TabIndex = 21;
-            this.buttonSearch_TIS.Text = "Поиск";
-            this.buttonSearch_TIS.UseVisualStyleBackColor = true;
-            this.buttonSearch_TIS.Click += new System.EventHandler(this.buttonSearch_TIS_Click);
+            this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
+            this.графикToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.графикToolStripMenuItem.Text = "График";
+            this.графикToolStripMenuItem.Click += new System.EventHandler(this.графикToolStripMenuItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -461,10 +470,10 @@
             this.Controls.Add(this.dataGridViewTransports_TIS);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Городской транспорт";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransports_TIS)).EndInit();
@@ -508,6 +517,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNote;
         private System.Windows.Forms.Button buttonDeleteTransport_TIS;
         private System.Windows.Forms.Button buttonSearch_TIS;
+        private System.Windows.Forms.ToolStripMenuItem графикToolStripMenuItem;
     }
 }
 

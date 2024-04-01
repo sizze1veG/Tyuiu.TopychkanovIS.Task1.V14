@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace Tyuiu.TopychkanovIS.Task1.V14
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         List<Transport> transports = new List<Transport>();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -91,7 +91,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             buttonAddTransport_TIS.Enabled = false;
             buttonEditTransport_TIS.Enabled = false;
@@ -333,7 +333,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            InfoForm form = new InfoForm();
             form.ShowDialog();
         }
 
@@ -353,6 +353,12 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
         {
             Form searchForm = new SearchForm(transports);
             searchForm.ShowDialog();
+        }
+
+        private void графикToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form graphForm = new GraphForm(transports);
+            graphForm.ShowDialog();
         }
     }
 }
