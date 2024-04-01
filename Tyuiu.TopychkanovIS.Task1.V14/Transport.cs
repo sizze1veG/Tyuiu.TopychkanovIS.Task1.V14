@@ -2,7 +2,7 @@
 
 namespace Tyuiu.TopychkanovIS.Task1.V14
 {
-    internal class Transport
+    public class Transport
     {
         public TransportType Type { get; private set; }
         public int RouteNumber { get; private set;  }

@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTransports_TIS = new System.Windows.Forms.DataGridView();
             this.ColumnTransportType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRouteNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRouteIntroduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.comboBoxRouteHours_TIS = new System.Windows.Forms.ComboBox();
             this.comboBoxRouteTimeMin_TIS = new System.Windows.Forms.ComboBox();
             this.textBoxNote_TIS = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTransports_TIS = new System.Windows.Forms.GroupBox();
             this.buttonDeleteTransport_TIS = new System.Windows.Forms.Button();
             this.buttonEditTransport_TIS = new System.Windows.Forms.Button();
             this.buttonAddTransport_TIS = new System.Windows.Forms.Button();
@@ -58,9 +58,10 @@
             this.labelNumber_TIS = new System.Windows.Forms.Label();
             this.labelType_TIS = new System.Windows.Forms.Label();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
+            this.buttonSearch_TIS = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransports_TIS)).BeginInit();
+            this.groupBoxTransports_TIS.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -70,21 +71,24 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1782, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1782, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // dataGridViewTransports_TIS
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTransports_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTransports_TIS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTransports_TIS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnTransportType,
             this.ColumnRouteNumber,
             this.ColumnRouteIntroduction,
@@ -92,14 +96,14 @@
             this.ColumnFinalStop,
             this.ColumnRouteTime,
             this.ColumnNote});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(997, 413);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            this.dataGridViewTransports_TIS.Location = new System.Drawing.Point(31, 38);
+            this.dataGridViewTransports_TIS.Name = "dataGridViewTransports_TIS";
+            this.dataGridViewTransports_TIS.RowHeadersWidth = 51;
+            this.dataGridViewTransports_TIS.RowTemplate.Height = 24;
+            this.dataGridViewTransports_TIS.Size = new System.Drawing.Size(997, 413);
+            this.dataGridViewTransports_TIS.TabIndex = 1;
+            this.dataGridViewTransports_TIS.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
+            this.dataGridViewTransports_TIS.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // ColumnTransportType
             // 
@@ -305,31 +309,34 @@
             this.textBoxNote_TIS.Size = new System.Drawing.Size(165, 22);
             this.textBoxNote_TIS.TabIndex = 9;
             // 
-            // groupBox1
+            // groupBoxTransports_TIS
             // 
-            this.groupBox1.Controls.Add(this.buttonDeleteTransport_TIS);
-            this.groupBox1.Controls.Add(this.buttonEditTransport_TIS);
-            this.groupBox1.Controls.Add(this.buttonAddTransport_TIS);
-            this.groupBox1.Controls.Add(this.labelNote_TIS);
-            this.groupBox1.Controls.Add(this.labelTime_TIS);
-            this.groupBox1.Controls.Add(this.labelFinal_TIS);
-            this.groupBox1.Controls.Add(this.labelIntial_TIS);
-            this.groupBox1.Controls.Add(this.labelIntroduction_TIS);
-            this.groupBox1.Controls.Add(this.labelNumber_TIS);
-            this.groupBox1.Controls.Add(this.labelType_TIS);
-            this.groupBox1.Controls.Add(this.comboBoxTransportType_TIS);
-            this.groupBox1.Controls.Add(this.textBoxNote_TIS);
-            this.groupBox1.Controls.Add(this.textBoxTransportNumber_TIS);
-            this.groupBox1.Controls.Add(this.comboBoxRouteTimeMin_TIS);
-            this.groupBox1.Controls.Add(this.dateTimePickerRouteIntroduction_TIS);
-            this.groupBox1.Controls.Add(this.comboBoxRouteHours_TIS);
-            this.groupBox1.Controls.Add(this.textBoxInitialStop_TIS);
-            this.groupBox1.Controls.Add(this.textBoxFinalStop_TIS);
-            this.groupBox1.Location = new System.Drawing.Point(1034, 57);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(495, 394);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
+            this.groupBoxTransports_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxTransports_TIS.Controls.Add(this.buttonSearch_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.buttonDeleteTransport_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.buttonEditTransport_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.buttonAddTransport_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelNote_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelTime_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelFinal_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelIntial_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelIntroduction_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelNumber_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.labelType_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.comboBoxTransportType_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.textBoxNote_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.textBoxTransportNumber_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.comboBoxRouteTimeMin_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.dateTimePickerRouteIntroduction_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.comboBoxRouteHours_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.textBoxInitialStop_TIS);
+            this.groupBoxTransports_TIS.Controls.Add(this.textBoxFinalStop_TIS);
+            this.groupBoxTransports_TIS.Location = new System.Drawing.Point(1034, 57);
+            this.groupBoxTransports_TIS.Name = "groupBoxTransports_TIS";
+            this.groupBoxTransports_TIS.Size = new System.Drawing.Size(495, 394);
+            this.groupBoxTransports_TIS.TabIndex = 10;
+            this.groupBoxTransports_TIS.TabStop = false;
             // 
             // buttonDeleteTransport_TIS
             // 
@@ -426,6 +433,7 @@
             // 
             // labelTransportsCount_TIS
             // 
+            this.labelTransportsCount_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTransportsCount_TIS.AutoSize = true;
             this.labelTransportsCount_TIS.Location = new System.Drawing.Point(1031, 38);
             this.labelTransportsCount_TIS.Name = "labelTransportsCount_TIS";
@@ -433,14 +441,24 @@
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
             // 
+            // buttonSearch_TIS
+            // 
+            this.buttonSearch_TIS.Location = new System.Drawing.Point(365, 205);
+            this.buttonSearch_TIS.Name = "buttonSearch_TIS";
+            this.buttonSearch_TIS.Size = new System.Drawing.Size(119, 23);
+            this.buttonSearch_TIS.TabIndex = 21;
+            this.buttonSearch_TIS.Text = "Поиск";
+            this.buttonSearch_TIS.UseVisualStyleBackColor = true;
+            this.buttonSearch_TIS.Click += new System.EventHandler(this.buttonSearch_TIS_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 510);
             this.Controls.Add(this.labelTransportsCount_TIS);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.groupBoxTransports_TIS);
+            this.Controls.Add(this.dataGridViewTransports_TIS);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -449,9 +467,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransports_TIS)).EndInit();
+            this.groupBoxTransports_TIS.ResumeLayout(false);
+            this.groupBoxTransports_TIS.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +479,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewTransports_TIS;
         private System.Windows.Forms.ComboBox comboBoxTransportType_TIS;
         private System.Windows.Forms.TextBox textBoxTransportNumber_TIS;
         private System.Windows.Forms.DateTimePicker dateTimePickerRouteIntroduction_TIS;
@@ -470,7 +488,7 @@
         private System.Windows.Forms.ComboBox comboBoxRouteHours_TIS;
         private System.Windows.Forms.ComboBox comboBoxRouteTimeMin_TIS;
         private System.Windows.Forms.TextBox textBoxNote_TIS;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTransports_TIS;
         private System.Windows.Forms.Label labelNumber_TIS;
         private System.Windows.Forms.Label labelType_TIS;
         private System.Windows.Forms.Label labelIntroduction_TIS;
@@ -489,6 +507,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRouteTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNote;
         private System.Windows.Forms.Button buttonDeleteTransport_TIS;
+        private System.Windows.Forms.Button buttonSearch_TIS;
     }
 }
 
