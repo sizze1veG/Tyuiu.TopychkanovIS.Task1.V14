@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace Tyuiu.TopychkanovIS.Task1.V14
 {
-    public partial class Form3 : Form
+    public partial class InfoForm : Form
     {
-        public Form3()
+        public InfoForm()
         {
             InitializeComponent();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void InfoForm_Load(object sender, EventArgs e)
         {
 
         }
