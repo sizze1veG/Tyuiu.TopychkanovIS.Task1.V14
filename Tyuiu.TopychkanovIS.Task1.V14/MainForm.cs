@@ -60,6 +60,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                         transport.RouteTime.ToString($"t"), transport.Note);
 
                     labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
+                    labelMinTime_TIS.Text = "Мин. время в пути: " + GetMinTime().ToShortTimeString().ToString();
+                    labelMaxTime_TIS.Text = "Макс. время в пути: " + GetMaxTime().ToShortTimeString().ToString();
 
                     CleareAllFields();
 
@@ -69,6 +71,32 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             {
                 MessageBox.Show(ex.Message);
             } 
+        }
+
+        private DateTime GetMinTime()
+        {
+            DateTime dateTime = DateTime.MaxValue;
+            foreach (var item in transports)
+            {
+                if (item.RouteTime < dateTime)
+                {
+                    dateTime = item.RouteTime;
+                }
+            }
+            return dateTime;
+        }
+
+        private DateTime GetMaxTime()
+        {
+            DateTime dateTime = DateTime.MinValue;
+            foreach (var item in transports)
+            {
+                if (item.RouteTime > dateTime)
+                {
+                    dateTime = item.RouteTime;
+                }
+            }
+            return dateTime;
         }
 
         #region Check input data
@@ -131,6 +159,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             }
 
             labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
+            labelMinTime_TIS.Text = "Мин. время в пути: " + GetMinTime().ToShortTimeString().ToString();
+            labelMaxTime_TIS.Text = "Макс. время в пути: " + GetMaxTime().ToShortTimeString().ToString();
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -323,6 +353,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 buttonDeleteTransport_TIS.Enabled = false;
 
                 labelTransportsCount_TIS.Text = "Количество: " + transports.Count.ToString();
+                labelMinTime_TIS.Text = "Мин. время в пути: " + GetMinTime().ToShortTimeString().ToString();
+                labelMaxTime_TIS.Text = "Макс. время в пути: " + GetMaxTime().ToShortTimeString().ToString();
             }
             catch (Exception ex)
             {

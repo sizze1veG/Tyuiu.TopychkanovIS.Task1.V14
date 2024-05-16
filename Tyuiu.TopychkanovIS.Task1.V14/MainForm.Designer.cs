@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.графикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTransports_TIS = new System.Windows.Forms.DataGridView();
             this.ColumnTransportType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRouteNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +60,8 @@
             this.labelNumber_TIS = new System.Windows.Forms.Label();
             this.labelType_TIS = new System.Windows.Forms.Label();
             this.labelTransportsCount_TIS = new System.Windows.Forms.Label();
-            this.графикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelMinTime_TIS = new System.Windows.Forms.Label();
+            this.labelMaxTime_TIS = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransports_TIS)).BeginInit();
             this.groupBoxTransports_TIS.SuspendLayout();
@@ -73,16 +75,23 @@
             this.графикToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1782, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1782, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
+            // графикToolStripMenuItem
+            // 
+            this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
+            this.графикToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.графикToolStripMenuItem.Text = "График";
+            this.графикToolStripMenuItem.Click += new System.EventHandler(this.графикToolStripMenuItem_Click);
             // 
             // dataGridViewTransports_TIS
             // 
@@ -453,18 +462,33 @@
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
             // 
-            // графикToolStripMenuItem
+            // labelMinTime_TIS
             // 
-            this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
-            this.графикToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.графикToolStripMenuItem.Text = "График";
-            this.графикToolStripMenuItem.Click += new System.EventHandler(this.графикToolStripMenuItem_Click);
+            this.labelMinTime_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMinTime_TIS.AutoSize = true;
+            this.labelMinTime_TIS.Location = new System.Drawing.Point(1188, 38);
+            this.labelMinTime_TIS.Name = "labelMinTime_TIS";
+            this.labelMinTime_TIS.Size = new System.Drawing.Size(125, 16);
+            this.labelMinTime_TIS.TabIndex = 12;
+            this.labelMinTime_TIS.Text = "Мин. время в пути";
+            // 
+            // labelMaxTime_TIS
+            // 
+            this.labelMaxTime_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMaxTime_TIS.AutoSize = true;
+            this.labelMaxTime_TIS.Location = new System.Drawing.Point(1398, 38);
+            this.labelMaxTime_TIS.Name = "labelMaxTime_TIS";
+            this.labelMaxTime_TIS.Size = new System.Drawing.Size(131, 16);
+            this.labelMaxTime_TIS.TabIndex = 12;
+            this.labelMaxTime_TIS.Text = "Макс. время в пути";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1782, 510);
+            this.Controls.Add(this.labelMaxTime_TIS);
+            this.Controls.Add(this.labelMinTime_TIS);
             this.Controls.Add(this.labelTransportsCount_TIS);
             this.Controls.Add(this.groupBoxTransports_TIS);
             this.Controls.Add(this.dataGridViewTransports_TIS);
@@ -518,6 +542,8 @@
         private System.Windows.Forms.Button buttonDeleteTransport_TIS;
         private System.Windows.Forms.Button buttonSearch_TIS;
         private System.Windows.Forms.ToolStripMenuItem графикToolStripMenuItem;
+        private System.Windows.Forms.Label labelMinTime_TIS;
+        private System.Windows.Forms.Label labelMaxTime_TIS;
     }
 }
 
