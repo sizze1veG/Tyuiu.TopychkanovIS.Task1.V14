@@ -23,7 +23,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private void GraphForm_Load(object sender, EventArgs e)
         {
-            int countType = 2;
+            int countType = 1;
             int start = 0;
             int end = transports.Count;
             foreach (var item in Enum.GetValues(typeof(TransportType)))

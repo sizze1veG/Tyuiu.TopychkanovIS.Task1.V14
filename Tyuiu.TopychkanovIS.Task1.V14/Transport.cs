@@ -37,8 +37,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         public override string ToString()
         {
-            return GetType() + " " + RouteNumber.ToString() + " " + RouteIntroductionDate.ToString($"d") + " " 
-                + InitialStop.ToString() + " " + FinalStop.ToString() + " " + RouteTime.ToString($"t") + " " + Note.ToString();
+            return GetType() + "|" + RouteNumber.ToString() + "|" + RouteIntroductionDate.ToString($"d") + "|" 
+                + InitialStop.ToString() + "|" + FinalStop.ToString() + "|" + RouteTime.ToString($"t") + "|" + Note.ToString();
         }
 
         public bool CompareTo(Transport transport)

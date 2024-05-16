@@ -24,7 +24,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 if (CheckComboBox(comboBoxTransportType_TIS) && CheckTextBoxTransportNumber()
                 && CheckDateRouteIntroduction() && CheckTransportStop(textBoxInitialStop_TIS)
                 && CheckTransportStop(textBoxFinalStop_TIS) && CheckComboBox(comboBoxRouteHours_TIS)
-                && CheckComboBox(comboBoxRouteTimeMin_TIS))
+                && CheckComboBox(comboBoxRouteTimeMin_TIS) && CheckNote())
                 {
 
                     #region Get transport type
@@ -75,6 +75,10 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private DateTime GetMinTime()
         {
+            if (transports.Count == 0)
+            {
+                return DateTime.MinValue;
+            }
             DateTime dateTime = DateTime.MaxValue;
             foreach (var item in transports)
             {
@@ -117,6 +121,8 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
             }
         }
 
+        private bool CheckNote() => textBoxNote_TIS.Text.Length != 0;
+
         #endregion
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 }
             }
 
-            List<string[]> lines = File.ReadAllLines("Data.csv", Encoding.GetEncoding(1251)).Select(x => x.Split(' ')).ToList();
+            List<string[]> lines = File.ReadAllLines("Data.csv", Encoding.GetEncoding(1251)).Select(x => x.Split('|')).ToList();
             foreach (var line in lines)
             {
                 #region Get transport type
@@ -216,7 +222,7 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
                 if (CheckComboBox(comboBoxTransportType_TIS) && CheckTextBoxTransportNumber()
                 && CheckDateRouteIntroduction() && CheckTransportStop(textBoxInitialStop_TIS)
                 && CheckTransportStop(textBoxFinalStop_TIS) && CheckComboBox(comboBoxRouteHours_TIS)
-                && CheckComboBox(comboBoxRouteTimeMin_TIS))
+                && CheckComboBox(comboBoxRouteTimeMin_TIS) && CheckNote())
                 {
                     #region Remove transport
 
