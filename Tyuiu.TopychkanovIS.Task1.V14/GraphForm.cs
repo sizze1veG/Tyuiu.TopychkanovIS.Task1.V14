@@ -23,25 +23,27 @@ namespace Tyuiu.TopychkanovIS.Task1.V14
 
         private void GraphForm_Load(object sender, EventArgs e)
         {
-            int countType = 1;
-            int start = 0;
-            int end = transports.Count;
-            foreach (var item in Enum.GetValues(typeof(TransportType)))
+            int xValue = 0;
+
+            var transportTypeTranslations = new Dictionary<TransportType, string>
+        {
+            { TransportType.Bus, "Автобус" },
+            { TransportType.Shuttle, "Маршрутка" },
+            { TransportType.Streetcar, "Трамвай" },
+            { TransportType.Subway, "Метро" }
+        };
+
+            foreach (var item in Enum.GetValues(typeof(TransportType)).Cast<TransportType>())
             {
-                CustomLabel label = new CustomLabel(start, end, item.ToString(), 0, LabelMarkStyle.None);
+                string translatedLabel = transportTypeTranslations[item];
+                CustomLabel label = new CustomLabel(xValue - 0.5, xValue + 0.5, translatedLabel, 0, LabelMarkStyle.None);
                 chartTransports_TIS.ChartAreas[0].AxisX.CustomLabels.Add(label);
-                start++;
-                end++;
-                int count = 0;
-                countType++;
-                foreach (var tr in transports)
-                {
-                    if (tr.Type == (TransportType)item)
-                    {
-                        count++;
-                    }
-                }
-                chartTransports_TIS.Series[0].Points.AddXY(countType, count);
+
+                int count = transports.Count(tr => tr.Type == item);
+
+                chartTransports_TIS.Series[0].Points.AddXY(xValue, count);
+
+                xValue++;
             }
         }
     }

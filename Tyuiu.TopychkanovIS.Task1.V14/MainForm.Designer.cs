@@ -75,21 +75,22 @@
             this.графикToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1782, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1336, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // графикToolStripMenuItem
             // 
             this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
-            this.графикToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.графикToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.графикToolStripMenuItem.Text = "График";
             this.графикToolStripMenuItem.Click += new System.EventHandler(this.графикToolStripMenuItem_Click);
             // 
@@ -107,11 +108,12 @@
             this.ColumnFinalStop,
             this.ColumnRouteTime,
             this.ColumnNote});
-            this.dataGridViewTransports_TIS.Location = new System.Drawing.Point(31, 38);
+            this.dataGridViewTransports_TIS.Location = new System.Drawing.Point(23, 31);
+            this.dataGridViewTransports_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewTransports_TIS.Name = "dataGridViewTransports_TIS";
             this.dataGridViewTransports_TIS.RowHeadersWidth = 51;
             this.dataGridViewTransports_TIS.RowTemplate.Height = 24;
-            this.dataGridViewTransports_TIS.Size = new System.Drawing.Size(997, 413);
+            this.dataGridViewTransports_TIS.Size = new System.Drawing.Size(748, 336);
             this.dataGridViewTransports_TIS.TabIndex = 1;
             this.dataGridViewTransports_TIS.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             this.dataGridViewTransports_TIS.Click += new System.EventHandler(this.dataGridView1_Click);
@@ -188,41 +190,46 @@
             "Маршрутка",
             "Трамвай",
             "Метро"});
-            this.comboBoxTransportType_TIS.Location = new System.Drawing.Point(182, 64);
+            this.comboBoxTransportType_TIS.Location = new System.Drawing.Point(136, 52);
+            this.comboBoxTransportType_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxTransportType_TIS.Name = "comboBoxTransportType_TIS";
-            this.comboBoxTransportType_TIS.Size = new System.Drawing.Size(165, 24);
+            this.comboBoxTransportType_TIS.Size = new System.Drawing.Size(125, 21);
             this.comboBoxTransportType_TIS.TabIndex = 2;
             // 
             // textBoxTransportNumber_TIS
             // 
-            this.textBoxTransportNumber_TIS.Location = new System.Drawing.Point(182, 111);
+            this.textBoxTransportNumber_TIS.Location = new System.Drawing.Point(136, 90);
+            this.textBoxTransportNumber_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTransportNumber_TIS.MaxLength = 5;
             this.textBoxTransportNumber_TIS.Name = "textBoxTransportNumber_TIS";
-            this.textBoxTransportNumber_TIS.Size = new System.Drawing.Size(165, 22);
+            this.textBoxTransportNumber_TIS.Size = new System.Drawing.Size(125, 20);
             this.textBoxTransportNumber_TIS.TabIndex = 3;
             this.textBoxTransportNumber_TIS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTransportNumber_TIS_KeyPress);
             // 
             // dateTimePickerRouteIntroduction_TIS
             // 
-            this.dateTimePickerRouteIntroduction_TIS.Location = new System.Drawing.Point(182, 160);
+            this.dateTimePickerRouteIntroduction_TIS.Location = new System.Drawing.Point(136, 130);
+            this.dateTimePickerRouteIntroduction_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerRouteIntroduction_TIS.Name = "dateTimePickerRouteIntroduction_TIS";
-            this.dateTimePickerRouteIntroduction_TIS.Size = new System.Drawing.Size(165, 22);
+            this.dateTimePickerRouteIntroduction_TIS.Size = new System.Drawing.Size(125, 20);
             this.dateTimePickerRouteIntroduction_TIS.TabIndex = 4;
             // 
             // textBoxInitialStop_TIS
             // 
-            this.textBoxInitialStop_TIS.Location = new System.Drawing.Point(182, 206);
+            this.textBoxInitialStop_TIS.Location = new System.Drawing.Point(136, 167);
+            this.textBoxInitialStop_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxInitialStop_TIS.MaxLength = 50;
             this.textBoxInitialStop_TIS.Name = "textBoxInitialStop_TIS";
-            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(165, 22);
+            this.textBoxInitialStop_TIS.Size = new System.Drawing.Size(125, 20);
             this.textBoxInitialStop_TIS.TabIndex = 5;
             // 
             // textBoxFinalStop_TIS
             // 
-            this.textBoxFinalStop_TIS.Location = new System.Drawing.Point(182, 247);
+            this.textBoxFinalStop_TIS.Location = new System.Drawing.Point(136, 201);
+            this.textBoxFinalStop_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxFinalStop_TIS.MaxLength = 50;
             this.textBoxFinalStop_TIS.Name = "textBoxFinalStop_TIS";
-            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(165, 22);
+            this.textBoxFinalStop_TIS.Size = new System.Drawing.Size(125, 20);
             this.textBoxFinalStop_TIS.TabIndex = 6;
             // 
             // comboBoxRouteHours_TIS
@@ -238,9 +245,10 @@
             "6",
             "7",
             "8"});
-            this.comboBoxRouteHours_TIS.Location = new System.Drawing.Point(182, 288);
+            this.comboBoxRouteHours_TIS.Location = new System.Drawing.Point(136, 234);
+            this.comboBoxRouteHours_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxRouteHours_TIS.Name = "comboBoxRouteHours_TIS";
-            this.comboBoxRouteHours_TIS.Size = new System.Drawing.Size(57, 24);
+            this.comboBoxRouteHours_TIS.Size = new System.Drawing.Size(44, 21);
             this.comboBoxRouteHours_TIS.TabIndex = 7;
             // 
             // comboBoxRouteTimeMin_TIS
@@ -308,16 +316,18 @@
             "57",
             "58",
             "59"});
-            this.comboBoxRouteTimeMin_TIS.Location = new System.Drawing.Point(245, 288);
+            this.comboBoxRouteTimeMin_TIS.Location = new System.Drawing.Point(184, 234);
+            this.comboBoxRouteTimeMin_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxRouteTimeMin_TIS.Name = "comboBoxRouteTimeMin_TIS";
-            this.comboBoxRouteTimeMin_TIS.Size = new System.Drawing.Size(58, 24);
+            this.comboBoxRouteTimeMin_TIS.Size = new System.Drawing.Size(44, 21);
             this.comboBoxRouteTimeMin_TIS.TabIndex = 8;
             // 
             // textBoxNote_TIS
             // 
-            this.textBoxNote_TIS.Location = new System.Drawing.Point(182, 333);
+            this.textBoxNote_TIS.Location = new System.Drawing.Point(136, 271);
+            this.textBoxNote_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNote_TIS.Name = "textBoxNote_TIS";
-            this.textBoxNote_TIS.Size = new System.Drawing.Size(165, 22);
+            this.textBoxNote_TIS.Size = new System.Drawing.Size(125, 20);
             this.textBoxNote_TIS.TabIndex = 9;
             // 
             // groupBoxTransports_TIS
@@ -343,17 +353,20 @@
             this.groupBoxTransports_TIS.Controls.Add(this.comboBoxRouteHours_TIS);
             this.groupBoxTransports_TIS.Controls.Add(this.textBoxInitialStop_TIS);
             this.groupBoxTransports_TIS.Controls.Add(this.textBoxFinalStop_TIS);
-            this.groupBoxTransports_TIS.Location = new System.Drawing.Point(1034, 57);
+            this.groupBoxTransports_TIS.Location = new System.Drawing.Point(776, 46);
+            this.groupBoxTransports_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxTransports_TIS.Name = "groupBoxTransports_TIS";
-            this.groupBoxTransports_TIS.Size = new System.Drawing.Size(495, 394);
+            this.groupBoxTransports_TIS.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxTransports_TIS.Size = new System.Drawing.Size(371, 320);
             this.groupBoxTransports_TIS.TabIndex = 10;
             this.groupBoxTransports_TIS.TabStop = false;
             // 
             // buttonSearch_TIS
             // 
-            this.buttonSearch_TIS.Location = new System.Drawing.Point(365, 205);
+            this.buttonSearch_TIS.Location = new System.Drawing.Point(274, 167);
+            this.buttonSearch_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSearch_TIS.Name = "buttonSearch_TIS";
-            this.buttonSearch_TIS.Size = new System.Drawing.Size(119, 23);
+            this.buttonSearch_TIS.Size = new System.Drawing.Size(89, 19);
             this.buttonSearch_TIS.TabIndex = 21;
             this.buttonSearch_TIS.Text = "Поиск";
             this.buttonSearch_TIS.UseVisualStyleBackColor = true;
@@ -361,9 +374,10 @@
             // 
             // buttonDeleteTransport_TIS
             // 
-            this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(365, 159);
+            this.buttonDeleteTransport_TIS.Location = new System.Drawing.Point(274, 129);
+            this.buttonDeleteTransport_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDeleteTransport_TIS.Name = "buttonDeleteTransport_TIS";
-            this.buttonDeleteTransport_TIS.Size = new System.Drawing.Size(119, 23);
+            this.buttonDeleteTransport_TIS.Size = new System.Drawing.Size(89, 19);
             this.buttonDeleteTransport_TIS.TabIndex = 20;
             this.buttonDeleteTransport_TIS.Text = "Удалить";
             this.buttonDeleteTransport_TIS.UseVisualStyleBackColor = true;
@@ -371,9 +385,10 @@
             // 
             // buttonEditTransport_TIS
             // 
-            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(365, 109);
+            this.buttonEditTransport_TIS.Location = new System.Drawing.Point(274, 89);
+            this.buttonEditTransport_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEditTransport_TIS.Name = "buttonEditTransport_TIS";
-            this.buttonEditTransport_TIS.Size = new System.Drawing.Size(120, 23);
+            this.buttonEditTransport_TIS.Size = new System.Drawing.Size(90, 19);
             this.buttonEditTransport_TIS.TabIndex = 18;
             this.buttonEditTransport_TIS.Text = "Редактировать";
             this.buttonEditTransport_TIS.UseVisualStyleBackColor = true;
@@ -381,9 +396,10 @@
             // 
             // buttonAddTransport_TIS
             // 
-            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(364, 60);
+            this.buttonAddTransport_TIS.Location = new System.Drawing.Point(273, 49);
+            this.buttonAddTransport_TIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddTransport_TIS.Name = "buttonAddTransport_TIS";
-            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(120, 23);
+            this.buttonAddTransport_TIS.Size = new System.Drawing.Size(90, 19);
             this.buttonAddTransport_TIS.TabIndex = 17;
             this.buttonAddTransport_TIS.Text = "Добавить";
             this.buttonAddTransport_TIS.UseVisualStyleBackColor = true;
@@ -392,63 +408,70 @@
             // labelNote_TIS
             // 
             this.labelNote_TIS.AutoSize = true;
-            this.labelNote_TIS.Location = new System.Drawing.Point(19, 333);
+            this.labelNote_TIS.Location = new System.Drawing.Point(14, 271);
+            this.labelNote_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNote_TIS.Name = "labelNote_TIS";
-            this.labelNote_TIS.Size = new System.Drawing.Size(90, 16);
+            this.labelNote_TIS.Size = new System.Drawing.Size(80, 15);
             this.labelNote_TIS.TabIndex = 16;
             this.labelNote_TIS.Text = "Примечание";
             // 
             // labelTime_TIS
             // 
             this.labelTime_TIS.AutoSize = true;
-            this.labelTime_TIS.Location = new System.Drawing.Point(19, 288);
+            this.labelTime_TIS.Location = new System.Drawing.Point(14, 234);
+            this.labelTime_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime_TIS.Name = "labelTime_TIS";
-            this.labelTime_TIS.Size = new System.Drawing.Size(93, 16);
+            this.labelTime_TIS.Size = new System.Drawing.Size(84, 15);
             this.labelTime_TIS.TabIndex = 15;
             this.labelTime_TIS.Text = "Время в пути";
             // 
             // labelFinal_TIS
             // 
             this.labelFinal_TIS.AutoSize = true;
-            this.labelFinal_TIS.Location = new System.Drawing.Point(19, 247);
+            this.labelFinal_TIS.Location = new System.Drawing.Point(14, 201);
+            this.labelFinal_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFinal_TIS.Name = "labelFinal_TIS";
-            this.labelFinal_TIS.Size = new System.Drawing.Size(142, 16);
+            this.labelFinal_TIS.Size = new System.Drawing.Size(127, 15);
             this.labelFinal_TIS.TabIndex = 14;
             this.labelFinal_TIS.Text = "Конечная остановка";
             // 
             // labelIntial_TIS
             // 
             this.labelIntial_TIS.AutoSize = true;
-            this.labelIntial_TIS.Location = new System.Drawing.Point(19, 212);
+            this.labelIntial_TIS.Location = new System.Drawing.Point(14, 172);
+            this.labelIntial_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIntial_TIS.Name = "labelIntial_TIS";
-            this.labelIntial_TIS.Size = new System.Drawing.Size(151, 16);
+            this.labelIntial_TIS.Size = new System.Drawing.Size(135, 15);
             this.labelIntial_TIS.TabIndex = 13;
             this.labelIntial_TIS.Text = "Начальная остановка";
             // 
             // labelIntroduction_TIS
             // 
             this.labelIntroduction_TIS.AutoSize = true;
-            this.labelIntroduction_TIS.Location = new System.Drawing.Point(19, 166);
+            this.labelIntroduction_TIS.Location = new System.Drawing.Point(14, 135);
+            this.labelIntroduction_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIntroduction_TIS.Name = "labelIntroduction_TIS";
-            this.labelIntroduction_TIS.Size = new System.Drawing.Size(105, 16);
+            this.labelIntroduction_TIS.Size = new System.Drawing.Size(96, 15);
             this.labelIntroduction_TIS.TabIndex = 12;
             this.labelIntroduction_TIS.Text = "Дата введения";
             // 
             // labelNumber_TIS
             // 
             this.labelNumber_TIS.AutoSize = true;
-            this.labelNumber_TIS.Location = new System.Drawing.Point(19, 117);
+            this.labelNumber_TIS.Location = new System.Drawing.Point(14, 95);
+            this.labelNumber_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumber_TIS.Name = "labelNumber_TIS";
-            this.labelNumber_TIS.Size = new System.Drawing.Size(50, 16);
+            this.labelNumber_TIS.Size = new System.Drawing.Size(46, 15);
             this.labelNumber_TIS.TabIndex = 11;
             this.labelNumber_TIS.Text = "Номер";
             // 
             // labelType_TIS
             // 
             this.labelType_TIS.AutoSize = true;
-            this.labelType_TIS.Location = new System.Drawing.Point(19, 67);
+            this.labelType_TIS.Location = new System.Drawing.Point(14, 54);
+            this.labelType_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelType_TIS.Name = "labelType_TIS";
-            this.labelType_TIS.Size = new System.Drawing.Size(32, 16);
+            this.labelType_TIS.Size = new System.Drawing.Size(28, 15);
             this.labelType_TIS.TabIndex = 10;
             this.labelType_TIS.Text = "Тип";
             // 
@@ -456,9 +479,10 @@
             // 
             this.labelTransportsCount_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTransportsCount_TIS.AutoSize = true;
-            this.labelTransportsCount_TIS.Location = new System.Drawing.Point(1031, 38);
+            this.labelTransportsCount_TIS.Location = new System.Drawing.Point(773, 31);
+            this.labelTransportsCount_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTransportsCount_TIS.Name = "labelTransportsCount_TIS";
-            this.labelTransportsCount_TIS.Size = new System.Drawing.Size(85, 16);
+            this.labelTransportsCount_TIS.Size = new System.Drawing.Size(76, 15);
             this.labelTransportsCount_TIS.TabIndex = 12;
             this.labelTransportsCount_TIS.Text = "Количество";
             // 
@@ -466,9 +490,10 @@
             // 
             this.labelMinTime_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMinTime_TIS.AutoSize = true;
-            this.labelMinTime_TIS.Location = new System.Drawing.Point(1188, 38);
+            this.labelMinTime_TIS.Location = new System.Drawing.Point(891, 31);
+            this.labelMinTime_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMinTime_TIS.Name = "labelMinTime_TIS";
-            this.labelMinTime_TIS.Size = new System.Drawing.Size(125, 16);
+            this.labelMinTime_TIS.Size = new System.Drawing.Size(114, 15);
             this.labelMinTime_TIS.TabIndex = 12;
             this.labelMinTime_TIS.Text = "Мин. время в пути";
             // 
@@ -476,17 +501,18 @@
             // 
             this.labelMaxTime_TIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMaxTime_TIS.AutoSize = true;
-            this.labelMaxTime_TIS.Location = new System.Drawing.Point(1398, 38);
+            this.labelMaxTime_TIS.Location = new System.Drawing.Point(1048, 31);
+            this.labelMaxTime_TIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMaxTime_TIS.Name = "labelMaxTime_TIS";
-            this.labelMaxTime_TIS.Size = new System.Drawing.Size(131, 16);
+            this.labelMaxTime_TIS.Size = new System.Drawing.Size(119, 15);
             this.labelMaxTime_TIS.TabIndex = 12;
             this.labelMaxTime_TIS.Text = "Макс. время в пути";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1782, 510);
+            this.ClientSize = new System.Drawing.Size(1336, 414);
             this.Controls.Add(this.labelMaxTime_TIS);
             this.Controls.Add(this.labelMinTime_TIS);
             this.Controls.Add(this.labelTransportsCount_TIS);
@@ -494,6 +520,7 @@
             this.Controls.Add(this.dataGridViewTransports_TIS);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Городской транспорт";
